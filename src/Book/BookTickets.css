@@ -1,0 +1,308 @@
+/* General Styling */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Light background color */
+}
+
+.book-tickets-container {
+  max-width: 960px;
+  width: 100%; /* Full width */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  font-family: 'Roboto', sans-serif;
+  animation: fadeIn 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Take full viewport height */
+}
+
+/* Header */
+h2 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+  animation: slideIn 0.6s ease-out;
+}
+
+/* Step Container */
+.step {
+  display: none;
+  animation: slideIn 0.6s ease-out;
+}
+
+.step.active {
+  display: block;
+}
+
+/* Step 1: Trip Details Form */
+.step-1 label {
+  font-size: 1rem;
+  color: #555;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.step-1 input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.step-1 input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.step-1 input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* Bus Selection (Step 2) */
+.step-2 {
+  text-align: center;
+}
+
+.bus-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.bus-option {
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 10px;
+  width: 220px;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.bus-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bus-option.selected {
+  border-color: #28a745;
+  box-shadow: 0 10px 20px rgba(40, 167, 69, 0.2);
+}
+
+.bus-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.bus-info p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.price {
+  font-size: 1.2rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Seat Map (Step 3) */
+.step-3 {
+  text-align: center;
+}
+
+.seat-map {
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 15px;
+  justify-items: center;
+  align-items: center;
+  max-width: 600px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.seat-map button {
+  padding: 12px;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  font-size: 16px;
+  background-color: #fff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.seat-map button:hover {
+  background-color: #ddd;
+  transform: scale(1.05);
+}
+
+.seat-map button.occupied {
+  background-color: #ff4e4e;
+  color: white;
+  cursor: not-allowed;
+}
+
+.seat-map button.available {
+  background-color: #28a745;
+  color: white;
+}
+
+.seat-map button.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.seat-map button:disabled {
+  cursor: not-allowed;
+}
+
+/* Form Buttons */
+.next-btn, .confirm-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.next-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.next-btn:hover {
+  background-color: #218838;
+}
+
+.next-btn:active {
+  transform: scale(0.98);
+}
+
+.confirm-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #0056b3;
+}
+
+.confirm-btn:active {
+  transform: scale(0.98);
+}
+
+/* Confirmation Styling */
+.confirmation {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.confirmation h3 {
+  font-size: 2rem;
+  color: #28a745;
+}
+
+.confirmation p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Animations */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .seat-map {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .bus-options {
+    flex-direction: column;
+  }
+
+  .bus-option {
+    width: 100%;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .seat-map {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bus-option {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Back Button Styling */
+.back-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #6c757d;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-right: 10px;
+}
+
+.back-btn:hover {
+  background-color: #5a6268;
+}
+
+.back-btn:active {
+  transform: scale(0.98);
+}
